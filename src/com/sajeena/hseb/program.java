@@ -5,7 +5,7 @@
  */
 package com.sajeena.hseb;
 
-import com.sajeena.hseb.Package.marks;
+import com.sajeena.hseb.Package.Marks;
 import java.util.Scanner;
 
 /**
@@ -18,39 +18,41 @@ public class program {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String[] student = new String[6];
+        String[] subject = new String[6];
+        double[] mark = new double[subject.length];
 
-        Scanner input = new Scanner(System.in);
-        while(true)
-        {
+        Scanner st = new Scanner(System.in);
+        Marks m = new Marks(st, student, subject, mark);
 
-        System.out.println("1.Enter Student");
-        System.out.println("2.Enter Subjects:");
-        System.out.println("3.Enter Marks");
-        System.out.println("4.Exit");
-        System.out.println("Enter your choice:[1-4]");
-        int choice = input.nextInt();
-        marks m=new marks();
-        switch (choice) {
-            case 1:
-                m.studentsname();
-                break;
-            case 2:
-                m.subjectname();
-                break;
-            case 3:
-                m.markentry();
-                break;
-            case 4:
-                System.exit(0);
-                break;
-        }
- System.out.print("Do you want to continue?(Y/N):");
-                    String t=input.next();
-                    if(t.equalsIgnoreCase("N")){
+        while (true) {
+
+            System.out.println("1.Enter Student:");
+            System.out.println("2.Enter Subjects:");
+            System.out.println("3.Enter Marks:");
+            System.out.println("4.View Grade:");
+            System.out.println("5.Exit");
+            System.out.println("Enter your choice[1-5]:");
+            int choice = st.nextInt();
+            switch (choice) {
+                case 1:
+                    m.studentsname();
+                    break;
+                case 2:
+                    m.subjectname();
+                    break;
+                case 3:
+                    m.markentry();
+                    break;
+                case 4:
+                    m.grade();
+                    break;
+                case 5:
                     System.exit(0);
-                    }        }
-        
+                    break;
+            }
+
+        }
 
     }
-
 }
